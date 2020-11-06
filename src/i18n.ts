@@ -4,9 +4,6 @@ import { initReactI18next } from "react-i18next"
 import translationEN from "../public/locales/en/translation.json"
 import translationPT from "../public/locales/pt/translation.json"
 
-// const router = useRouter()
-// const { locale, defaultLocale } = router
-
 const resources = {
   en: {
     translation: translationEN,

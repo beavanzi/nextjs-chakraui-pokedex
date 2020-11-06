@@ -1,12 +1,8 @@
-import { Container, Heading } from "@chakra-ui/core"
-import { GetStaticProps } from "next"
-import Link from "next/link"
-import React from "react"
+import { useRouter } from "next/router"
 import { useTranslation } from "react-i18next"
-import { useFetch } from "../../hooks/useFetch"
+import { findPokemon } from "../../hooks/useFetch"
 import LayoutMain from "../../layouts/main-with-header"
 import LayoutPokemonDetails from "../../layouts/pokemon-detail"
-import { Pokemons } from "../../types/pokemons"
 
 // export const getStaticProps: GetStaticProps = async ({ locale }) => {
 //   return {
@@ -16,18 +12,21 @@ import { Pokemons } from "../../types/pokemons"
 
 const PokemonDetails = ({ locale }) => {
   const { t } = useTranslation()
-  const { data, error } = useFetch<Pokemons, any>(
-    "https://pokeapi.co/api/v2/pokedex/2/"
-  )
+  const { query } = useRouter()
+  const { pokemon } = query
+  const { data, error } = findPokemon<Pokemon, any>(pokemon)
 
   if (!data) {
     return <p> Carregando </p>
   }
-  const { pokemon_entries: pokemons } = data
+  const {} = data
 
   return (
     <LayoutMain>
-      <LayoutPokemonDetails />
+      <LayoutPokemonDetails
+      // heading={pokemon.name}
+      // image={pokemon.sprites.front_default}
+      />
     </LayoutMain>
   )
 }

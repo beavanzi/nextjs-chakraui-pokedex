@@ -16,7 +16,7 @@ const LayoutPokemonDetails: React.FC<Props> = ({ image, heading, text }) => {
   return (
     <Grid h="80" w="95%" templateColumns="1fr 2fr" gap={2}>
       <Box borderRadius="4px" bg="pokemons.blue.basic">
-        {/* <Image src={image} unsized /> */}
+        {/* <Image src={image} width={60} height={120} layout="responsive" /> */}
       </Box>
       <Box borderRadius="4px" bg="pokemons.red.basic">
         {/* <Heading>{heading}</Heading> */}
